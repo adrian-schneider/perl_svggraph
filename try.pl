@@ -46,11 +46,20 @@ if ($testnumber == 1) {
     plot(mapX(mapwX(mapX($phi))), mapY(mapwY(mapY($y))));
   }
   setLineStyle(0);
-  setColor(SvgGraph::WHITE);
-  plotAlpha;
   setChrSize(SvgGraph::MEDIUM);
-  text("Hello ", SvgGraph::NEWLINE);
-  text("World", SvgGraph::NOMOVE);
+  home(0, 0);
+  setColor(SvgGraph::HALFBRIGHT);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  setColor(SvgGraph::NORMALBRIGHT);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  setColor(SvgGraph::DOUBLEBRIGHT);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
+  text("Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit",  SvgGraph::NEWLINE);
 }
 
 endPage;

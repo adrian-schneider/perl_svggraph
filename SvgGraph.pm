@@ -11,13 +11,13 @@ $VERSION     = 1.01;
 @EXPORT      = ();
 @EXPORT_OK   = qw(
   plotPoint plotLine plot plotAlpha newPage endPage copyPage setColor setChrSize textW textH
-    text setLineStyle
+    home text setLineStyle
   ellipticArc ellipse
   axis mapDef mapX mapwX mapY mapwY
 );
 %EXPORT_TAGS = (
   Basic  => [qw(&plotPoint &plotLine &plot &plotAlpha &newPage &endPage &copyPage &setColor
-    &setChrSize &textW &textH &text &setLineStyle)]
+    &setChrSize &textW &textH &home &text &setLineStyle)]
   , Shapes => [qw(&ellipticArc &ellipse)]
   , Axis => [qw(&axis &mapDef &mapX &mapwX &mapY &mapwY)]
 );
@@ -37,6 +37,11 @@ use constant WHITE     =>  7;
 use constant ORANGE    =>  8;
 use constant PINK      =>  9;
 use constant GREY      => 10;
+
+# Standard text colors.
+use constant HALFBRIGHT   => 11;
+use constant NORMALBRIGHT => 12;
+use constant DOUBLEBRIGHT => 13;
 
 use constant TINY      =>  0;
 use constant SMALL     =>  1;
@@ -82,7 +87,8 @@ our $defaultstyle    = "stroke:white";
 our @colorcolor = (
   "black", "orangered", "limegreen", "deepskyblue",
   "yellow", "violet", "turquoise", "white",
-  "orange", "lightpink", "lightgrey"
+  "orange", "lightpink", "lightgrey",
+  "forestgreen", "limegreen", "lightgreen"
 );
 
 my $plotmode;
@@ -255,7 +261,7 @@ sub copyPage {
 # Set the stroke color.
 sub setColor {
   my $c = shift;
-  $color = $c % 11;
+  $color = $c % 14;
 }
 
 # Set the character size.
@@ -330,6 +336,16 @@ sub textW {
 # Return the height of a character.
 sub textH {
   return $fontHeight[$fontsize];
+}
+
+# Move the text cursor position.
+# Implicitly switches to alpha mode.
+# x text position
+# y text position
+sub home {
+  my ($x, $y) = @_;
+  plotAlpha;
+  plot($x * textW('x'), ($y + 1) * textH);
 }
 
 # Write text at the current position.
